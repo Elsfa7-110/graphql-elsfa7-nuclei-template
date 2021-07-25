@@ -1,0 +1,23 @@
+id: profile-symfony
+
+info:
+  name: symfony open profile
+  author: ELSFA7110
+  severity: high
+  tags: path
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/app_dev.php"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "Stack"
+        part: body
+
+      - type: status
+        status:
+          - 200
